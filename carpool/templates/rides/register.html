@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for message in form.start.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+{% for message in form.end.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+{% for message in form.seats.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+
+<form action="" method = "post">
+    <fieldset>
+        <legend>Register Ride</legend>
+        {{ form.hidden_tag()}}
+
+        <div>
+            {{form.start.label}}<br>
+            {{form.start}}<br>
+
+            <br>
+            {{form.end.label}}<br>
+            {{form.end}}<br>
+
+            <br>
+            {{form.car_num.label}}<br>
+            {{form.car_num}}<br>
+            <br>
+
+            {{form.seats.label}}<br>
+            {{form.seats}}<br>
+
+            <br>
+            {{form.submit}}
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

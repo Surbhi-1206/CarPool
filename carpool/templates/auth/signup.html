@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for message in form.name.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+{% for message in form.email.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+{% for message in form.password.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+<form action="" method = "post">
+    <fieldset>
+        <legend>Sign Up</legend>
+        {{ form.hidden_tag()}}
+
+        <div>
+            {{form.name.label}}<br>
+            {{form.name}}<br>
+            <br>
+
+            {{form.email.label}}<br>
+            {{form.email}}<br>
+            <br>
+
+            {{form.contact.label}}<br>
+            {{form.contact}}<br>
+            <br>
+
+            {{form.password.label}}<br>
+            {{form.password}}<br>
+             <br>
+
+            {{form.submit}}
+        </div>
+    </fieldset>
+</form>
+{% endblock %}

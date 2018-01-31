@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% block content %}
+
+<h3>Available Rides from {{ pickup }} to {{drop}}</h3>
+
+<ul>
+    {% for ride in rides %}
+    <li>
+        Owner  : {{ ride.email }}
+    </li>
+    {% endfor %}
+</ul>
+<form action="" method = "post">
+    <input type="Submit" value="Book">
+</form>
+
+{% endblock %}

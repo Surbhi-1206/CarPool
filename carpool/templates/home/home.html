@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if not g.user.is_authenticated %}
+     <h3><a href = "{{url_for('auth.signup')}}">Click here</a> to sign up</h3><br>
+    {% endif %}
+    <h3><a href = "{{ url_for('rides.registerRide') }}">Click here</a> to register a ride </h3><br>
+    <h3><a href = "{{ url_for('rides.searchRide') }}">Click here</a> to book a ride </h3><br>
+{% endblock %}

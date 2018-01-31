@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% for message in form.pickup.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+{% for message in form.drop.errors %}
+<div>{{ message }}</div>
+{% endfor %}
+
+
+<form action="" method = "post">
+    <fieldset>
+        <legend>Search For Rides</legend>
+        {{ form.hidden_tag()}}
+
+        <div>
+
+            {{form.pickup.label}}<br>
+            {{form.pickup}}<br>
+             <br>
+
+            {{form.drop.label}}<br>
+            {{form.drop}}<br>
+
+            <br>
+            {{form.submit}}
+        </div>
+    </fieldset>
+</form>
+
+{% endblock %}

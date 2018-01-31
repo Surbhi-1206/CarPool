@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% if title%}
+    <title>{{title}} - CarPool</title>
+    {% else %}
+    <title>Welcome to CarPool</title>
+    {% endif %}
+</head>
+<body>
+ <div><h2>Welcome to CarPool Service
+     <a href = {{url_for('home.welcome')}}> Home </a> |
+     {% if g.user.is_authenticated %}
+          <a href="{{ url_for('auth.signout') }}">Logout</a>
+     {% endif %}
+     {% if not g.user.is_authenticated %}
+          <a href="{{ url_for('auth.signin') }}">Login</a>
+     {% endif %}
+    </h2></div>
+    <hr>
+     {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+         </ul>
+       {% endif %}
+     {% endwith %}
+    {% block content %}{% endblock%}
+</body>
+</html>
