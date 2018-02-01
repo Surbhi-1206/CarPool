@@ -3,3 +3,4 @@ Flask
 Flask-Login
 Flask-Sqlalchemy
 Flask-Wtf
+Postgresql 10
