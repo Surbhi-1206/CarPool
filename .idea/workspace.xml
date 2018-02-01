@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a239aa52-4d1e-4ac6-ae70-32844d217df2" name="Default" comment="" />
+    <list default="true" id="a239aa52-4d1e-4ac6-ae70-32844d217df2" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/carpool/rides/views.py" afterPath="$PROJECT_DIR$/carpool/rides/views.py" />
+      <change beforePath="$PROJECT_DIR$/carpool/templates/rides/showrides.html" afterPath="$PROJECT_DIR$/carpool/templates/rides/showrides.html" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +15,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/carpool/home/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="105">
+              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/carpool/rides/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1605">
+              <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="showrides.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/carpool/templates/rides/showrides.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -55,7 +79,6 @@
         <option value="$PROJECT_DIR$/carpool/rides/BookingRepository.py" />
         <option value="$PROJECT_DIR$/carpool/rides/BookingService.py" />
         <option value="$PROJECT_DIR$/carpool/Booking/__init__.py" />
-        <option value="$PROJECT_DIR$/carpool/templates/rides/showrides.html" />
         <option value="$PROJECT_DIR$/carpool/Booking/BookingRepository.py" />
         <option value="$PROJECT_DIR$/carpool/Booking/BookingDto.py" />
         <option value="$PROJECT_DIR$/carpool/Booking/BookingService.py" />
@@ -77,7 +100,6 @@
         <option value="$PROJECT_DIR$/carpool/notification/NotifyService.py" />
         <option value="$PROJECT_DIR$/carpool/rides/RideRepository.py" />
         <option value="$PROJECT_DIR$/carpool/booking/views.py" />
-        <option value="$PROJECT_DIR$/carpool/rides/views.py" />
         <option value="$PROJECT_DIR$/carpool/auth/AuthService.py" />
         <option value="$PROJECT_DIR$/carpool/auth/forms.py" />
         <option value="$PROJECT_DIR$/carpool/auth/UserDto.py" />
@@ -85,6 +107,8 @@
         <option value="$PROJECT_DIR$/carpool/rides/forms.py" />
         <option value="$PROJECT_DIR$/carpool/rides/RideDto.py" />
         <option value="$PROJECT_DIR$/carpool/home/views.py" />
+        <option value="$PROJECT_DIR$/carpool/templates/rides/showrides.html" />
+        <option value="$PROJECT_DIR$/carpool/rides/views.py" />
       </list>
     </option>
   </component>
@@ -125,7 +149,20 @@
               <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="MyProject" type="462c0819:PsiDirectoryNode" />
               <item name="carpool" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="rides" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="carpool" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MyProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MyProject" type="462c0819:PsiDirectoryNode" />
+              <item name="carpool" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="rides" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -422,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpool/templates/rides/showrides.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/carpool/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -464,13 +494,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpool/templates/booking/confirmbooking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/carpool/templates/booking/confirmbooking.html" />
     <entry file="file://$PROJECT_DIR$/carpool/templates/booking/success.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -512,7 +536,7 @@
         <state relative-caret-position="325">
           <caret line="77" column="39" lean-forward="true" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#0#15#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -530,7 +554,7 @@
         <state relative-caret-position="240">
           <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
           <folding>
-            <element signature="e#0#82#0" expanded="true" />
+            <element signature="e#0#82#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -607,14 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/carpool/rides/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="114" column="57" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/carpool/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
@@ -641,8 +657,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/carpool/home/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpool/templates/rides/showrides.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="14" lean-forward="true" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/carpool/rides/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="119" column="0" lean-forward="true" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
           <folding />
         </state>
       </provider>
