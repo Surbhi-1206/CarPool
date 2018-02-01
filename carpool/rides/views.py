@@ -92,11 +92,14 @@ def bookRide(start, end):
     ride_dto = RideDto(start, end)
 
     # rides = findRides(start, end)
-    rides = ride_service.load_rides(ride_dto)
+    available_rides = ride_service.load_rides(ride_dto)
 
     if request.method == 'GET':
-        if rides:
-            return render_template('rides/showrides.html', pickup=start, drop=end, rides=rides)
+        if available_rides:
+            count_available_rides = 0
+            for ride in available_rides:
+                count_available_rides += 1
+            return render_template('rides/showrides.html', pickup=start, drop=end, ride_count=count_available_rides)
         flash('No rides available for the entered locations')
         return redirect(url_for('rides.searchRide'))
 
@@ -104,7 +107,7 @@ def bookRide(start, end):
     elif request.method == 'POST':
         print('request method is post')
         rider_email = g.user.get_id()
-        for ride in rides:
+        for ride in available_rides:
             owner_email = ride.email
             print(ride.email)
             random_int = randint(100, 999)
@@ -112,5 +115,5 @@ def bookRide(start, end):
             booking_dto = BookingDto(booking_code, ride.email, ride.start, ride.end, rider_email, ride.id)
             booking_service.create_booking(booking_dto)
             notify_service.send_notification_to_owners(booking_code, owner_email)
-        flash('Booking Request has been sent to drivers')
+        flash('Booking Request has been sent to drivers. Check your email for booking confirmation and driver details')
         return redirect(url_for('home.welcome'))

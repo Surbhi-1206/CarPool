@@ -1,17 +1,18 @@
 {% extends 'base.html'%}
 {% block content %}
 
-<h3>Available Rides from {{ pickup }} to {{drop}}</h3>
+<p>There are {{ ride_count }} rides available from {{ pickup }} to {{drop}}</p>
 
-<ul>
+<!-- <ul>
     {% for ride in rides %}
     <li>
         Owner  : {{ ride.email }}
     </li>
     {% endfor %}
-</ul>
+</ul> -->
+
 <form action="" method = "post">
-    <input type="Submit" value="Book">
+    <input type="Submit" value="Click to book a ride">
 </form>
 
 {% endblock %}
