@@ -13,8 +13,8 @@ class InvalidUserException(Exception):
 
 
 class AuthService:
-
     auth_repository = AuthRespository()
+
     def create_user(self, user_dto):
         """
         creates a new user
@@ -28,7 +28,6 @@ class AuthService:
         else:
             raise UserExistsException()
 
-
     def load_user(self, user_dto):
         """
         loads an existing user
@@ -37,8 +36,6 @@ class AuthService:
         """
         user = self.auth_repository.get_user(user_dto)
         if user:
-            #print (user.email , user.id)
+            # print (user.email , user.id)
             return user
         raise InvalidUserException('User does not exist')
-
-

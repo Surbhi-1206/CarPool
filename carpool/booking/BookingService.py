@@ -9,28 +9,35 @@ class BookingService:
         creates a new booking
         :param booking_dto:
         """
-        # booking_repository = BookingRepository()
         self.booking_repository.create_booking(booking_dto)
 
-    def load_bookings(self, booking_dto):
+    def load_bookings_by_path(self, booking_dto):
         """
         fetch existing bookings requests from a rider for a given path
         :param booking_dto:
         :return bookings:
         """
-        # booking_repository = BookingRepository()
-        bookings = self.booking_repository.get_booking(booking_dto)
+        bookings = self.booking_repository.get_bookings_by_path(booking_dto)
         return bookings
 
-    def update_bookings(self, booking_dto):
+    def load_booking_by_code(self, booking_dto):
         """
-        update the booking status
+        :param booking_dto:
+        :return:
         """
+        booking = self.booking_repository.get_booking_by_code(booking_dto)
+        return booking
 
-        # booking_repository = BookingRepository()
-        self.booking_repository.update_booking(booking_dto)
+    def confirm_booking(self, booking_dto):
+        """
+        confirm booking request
+        :param booking_dto:
+        :return:
+        """
+        self.booking_repository.confirm_booking(booking_dto)
 
-    def get_confirmed_booking_id(self, booking_dto):
-
-        ride_id = self.booking_repository.get_confirmed_bookings_id(booking_dto)
-        return ride_id
+    def cancel_bookings(self, booking_dto):
+        """
+        cancel booking request
+        """
+        self.booking_repository.cancel_bookings(booking_dto)

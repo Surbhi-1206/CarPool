@@ -59,11 +59,13 @@ class Bookings(db.Model):
     pickup = db.Column(db.String(100))
     drop = db.Column(db.String(100))
     status = db.Column(db.String(100))
+    booking_code = db.Column(db.String(100))
 
-    def __init__(self, rider, owner, ride_id, pickup, drop, status):
+    def __init__(self, rider, owner, ride_id, pickup, drop, status, booking_code):
         self.rider = rider
         self.owner = owner
         self.ride_id = ride_id
         self.pickup = pickup
         self.drop = drop
         self.status = status
+        self.booking_code = booking_code

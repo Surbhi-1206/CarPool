@@ -29,7 +29,6 @@ class RidesRepository:
         :return:
         """
         ride = models.Rides.query.filter_by(id=ride_id).first()
-        #print(ride.id)
         ride_details = {}
         ride_details['car_num'] = ride.car_num
         ride_details['pickup'] = ride.start

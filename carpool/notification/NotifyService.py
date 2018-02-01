@@ -1,5 +1,4 @@
 import requests
-from flask import Flask, g
 import json
 from carpool.auth.AuthService import AuthService
 from carpool.auth.UserDto import UserDto
@@ -10,13 +9,13 @@ class NotifyService:
 
     def send_notification_to_rider(self, rider, owner, ride_id):
         """
-        send owner details to rider when booking is confirmed
-        :return:
+        send driver details to rider
+        :param rider:
+        :param owner:
+        :param ride_id:
         """
-        print(rider)
         email = []
         email.append(str(rider))
-        print(email)
         auth_service = AuthService()
         ride_service = RideService()
         user_dto = UserDto(owner)
@@ -26,10 +25,10 @@ class NotifyService:
         ride_details = ride_service.get_ride_details(ride_id)
         message = "Your booking request from " + ride_details['pickup'] + " to " + ride_details[
             'drop'] + " has been confirmed."
-        car_info = "Car Details:-"+"\n" + "Driver Name: " + owner_name + " Contact: " + owner_contact + " Car Number: " + \
+        car_info = "\n Car Details:-" + "\n Driver Name: " + owner_name + "\n Contact: " + owner_contact + "\n Car Number: " + \
                    ride_details['car_num']
 
-        URL = "http://api.treebohotels.com/v1/notification/email/"
+        url = "http://api.treebohotels.com/v1/notification/email/"
         data_values = {
 
             "data": {
@@ -42,30 +41,23 @@ class NotifyService:
                 },
                 "consumer": "prowl",
                 "attachments": [],
-                "body_text": message+"\n"+car_info
+                "body_text": message + "\n" + car_info
             }
         }
 
         payload = json.dumps(data_values)
         headers = {'content-type': 'application/json'}
-        r = requests.post(url=URL, data=payload, headers=headers)
-        # print(r.url)
+        r = requests.post(url=url, data=payload, headers=headers)
         print(r.json())
 
-
-    def send_notification_to_owners(self, rides, sender, start, end):
+    def send_notification_to_owners(self, booking_code, owner_email):
         """
-        send booking request to ride owners via email
-         :param list_of_owners:
+        send booking request to driver
+         :param booking_code, owner_emal:
         """
         emails = []
-        for ride in rides:
-            print(ride.email)
-            emails.append(ride.email)
-
-        # print(emails)
-
-        URL = "http://api.treebohotels.com/v1/notification/email/"
+        emails.append(owner_email)
+        url = "http://api.treebohotels.com/v1/notification/email/"
         data_values = {
 
             "data": {
@@ -78,12 +70,10 @@ class NotifyService:
                 },
                 "consumer": "prowl",
                 "attachments": [],
-                "body_text": "http://127.0.0.1:5000/bookings/confirm_booking/" + sender + "/" + start + "/" + end
+                "body_text": "Click on the link below to confirm the booking request" + "\n http://127.0.0.1:5000/bookings/confirm_booking/" + booking_code
             }
         }
-
         payload = json.dumps(data_values)
         headers = {'content-type': 'application/json'}
-        r = requests.post(url=URL, data=payload, headers=headers)
-        # print(r.url)
+        r = requests.post(url=url, data=payload, headers=headers)
         print(r.json())
