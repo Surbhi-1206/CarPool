@@ -1,10 +1,7 @@
-
-
-
 class IllegalArgumentsException(Exception):
 
-    def __init__(self,*args,**kwargs):
-        super(IllegalArgumentsException,self).__init__(self,*args,**kwargs)
+    def __init__(self, *args, **kwargs):
+        super(IllegalArgumentsException, self).__init__(self, *args, **kwargs)
 
 
 # ride data transfer object

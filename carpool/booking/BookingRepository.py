@@ -9,47 +9,38 @@ class BookingRepository:
         :param booking_dto:
         """
         booking = models.Bookings(booking_dto.rider, booking_dto.owner, booking_dto.ride_id, booking_dto.pickup,
-                                  booking_dto.drop, booking_dto.status)
+                                  booking_dto.drop, booking_dto.status, booking_dto.booking_code)
         db.session.add(booking)
         db.session.commit()
 
-    def get_booking(self, booking_dto):
+    def get_bookings_by_path(self, booking_dto):
         """
         fetches existing booking requests from db
         :param booking__dto:
         :return bookings:
         """
         bookings = models.Bookings.query.filter_by(rider=booking_dto.rider, pickup=booking_dto.pickup,
-                                                   drop=booking_dto.drop).all()
+                                                   drop=booking_dto.drop, status=booking_dto.status).all()
         return bookings
 
-    def update_booking(self, booking_dto):
-        """
-        :param booking_dto:
-        updates the booking status
-        """
+    def get_booking_by_code(self, booking_dto):
+        booking = models.Bookings.query.filter_by(booking_code=booking_dto.booking_code).first()
+        return booking
 
-        booking = models.Bookings.query.filter_by(rider=booking_dto.rider, owner=booking_dto.owner,
-                                                  pickup=booking_dto.pickup,
-                                                  drop=booking_dto.drop).update(dict(status=booking_dto.status))
+    def cancel_bookings(self, booking_dto):
+        """
+        update booking status to cancelled
+        :param booking_dto:
+        """
+        booking = models.Bookings.query.filter_by(booking_code=booking_dto.booking_code).update(
+            dict(status=booking_dto.status))
         db.session.commit()
 
-    def get_confirmed_bookings_id(self, booking_dto):
+    def confirm_booking(self, booking_dto):
         """
-
+        update booking request to confirm
         :param booking_dto:
-        :return:
         """
-
-        #print(booking_dto.rider)
-        #print(booking_dto.pickup)
-        #print(booking_dto.drop)
-        #print(booking_dto.owner)
-        #print(booking_dto.status)
-        booking = models.Bookings.query.filter_by(rider=booking_dto.rider, pickup=booking_dto.pickup,
-                                                  drop=booking_dto.drop, owner=booking_dto.owner,
-                                                  status=booking_dto.status).first()
-        if booking:
-            #print("found it")
-            #print(booking.ride_id)
-            return booking.ride_id
+        booking = models.Bookings.query.filter_by(booking_code=booking_dto.booking_code).update(
+            dict(status=booking_dto.status))
+        db.session.commit()

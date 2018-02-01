@@ -10,6 +10,7 @@ from carpool.auth.AuthService import AuthService, InvalidUserException
 from carpool.notification.NotifyService import NotifyService
 from carpool.booking.BookingService import BookingService
 from carpool.booking.BookingDto import BookingDto
+from random import randint
 
 r = Blueprint('rides', __name__, url_prefix='/rides')
 
@@ -62,7 +63,7 @@ def registerRide():
 @login_required
 def searchRide():
     """
-    search rides from given start and end locations
+    search for rides
     """
 
     form = SearchRide()
@@ -80,17 +81,18 @@ def searchRide():
 @r.route('/bookride/<start>/<end>', methods=['GET', 'POST'])
 def bookRide(start, end):
     """
-    view available rides and send notification to drivers
+    send booking notification to drivers
     :param start location:
     :param end location:
 
     """
     ride_service = RideService()
+    booking_service = BookingService()
+    notify_service = NotifyService()
     ride_dto = RideDto(start, end)
 
     # rides = findRides(start, end)
     rides = ride_service.load_rides(ride_dto)
-    booking_service = BookingService()
 
     if request.method == 'GET':
         if rides:
@@ -102,10 +104,13 @@ def bookRide(start, end):
     elif request.method == 'POST':
         print('request method is post')
         rider_email = g.user.get_id()
-        notify_service = NotifyService()
-        notify_service.send_notification_to_owners(rides, rider_email, start, end)
         for ride in rides:
-            booking_dto = BookingDto(ride.email, ride.start, ride.end, rider_email, ride.id)
+            owner_email = ride.email
+            print(ride.email)
+            random_int = randint(100, 999)
+            booking_code = "b" + str(random_int)
+            booking_dto = BookingDto(booking_code, ride.email, ride.start, ride.end, rider_email, ride.id)
             booking_service.create_booking(booking_dto)
+            notify_service.send_notification_to_owners(booking_code, owner_email)
         flash('Booking Request has been sent to drivers')
         return redirect(url_for('home.welcome'))
